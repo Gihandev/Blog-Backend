@@ -1,0 +1,49 @@
+version: 2
+updates:
+  # Backend (Node.js + Express)
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "08:00"
+      timezone: "Asia/Colombo"
+    open-pull-requests-limit: 10
+    reviewers:
+      - "Gihandev"
+    assignees:
+      - "Gihandev"
+    groups:
+      # 🔒 Security & Authentication (HIGH RISK — review carefully)
+      security-auth:
+        patterns:
+          - "bcryptjs"
+          - "jsonwebtoken"
+          - "crypto-js"
+          - "express-validator"
+      # 🗄️ Database Drivers (MSSQL + MongoDB)
+      databases:
+        patterns:
+          - "mongoose"
+          - "mssql"
+      # ⚙️ Core Server & Middleware
+      server-core:
+        patterns:
+          - "express"
+          - "cors"
+          - "body-parser"
+          - "cookie-parser"
+      # 📎 File Upload & Utilities
+      utils:
+        patterns:
+          - "multer"
+          - "nodemailer"
+          - "dotenv"
+
+  # GitHub Actions (if you add CI/CD later)
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "08:00"
